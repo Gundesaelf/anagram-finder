@@ -38,22 +38,15 @@ def anagrams():
     words = list(load_file()) 
 
     while True:
-        user_input = input(Fore.LIGHTBLUE_EX + f'\nEnter a word make an anagram or type \'exit\' to quit...\n\n' + Fore.LIGHTYELLOW_EX + f'').lower().strip()
+        user_input = input(Fore.LIGHTBLUE_EX + f'\nEnter a word to make an anagram or type \'exit\' to quit...\n\n' + Fore.LIGHTYELLOW_EX + f'').lower().strip()
 
         if user_input == 'exit':
             print(Fore.LIGHTRED_EX + f'\nTerminating program\n')
             break
 
-        sorted_user_input = sorted(user_input)
+        anagram_list = sorted([word for word in words if sorted(word) == sorted(user_input)])
 
-        anagrams = []
-
-        for word in words:
-            sorted_word = sorted(word)
-            if sorted_word == sorted_user_input:
-                anagrams.append(word)
-
-        print(Fore.LIGHTGREEN_EX +'\nAnagrams:', Fore.LIGHTMAGENTA_EX + f'\n{anagrams}')
+        print(Fore.LIGHTGREEN_EX +'\nAnagrams:', Fore.LIGHTMAGENTA_EX + f'\n{anagram_list}')
 
 # |---------------------------------MAIN_LOOP---------------------------------|
 if __name__ == '__main__':
