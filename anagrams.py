@@ -35,7 +35,7 @@ def load_file():
         sys.exit(1)
 
 def anagrams():
-    words = list(load_file()) 
+    words = load_file()
 
     while True:
         user_input = input(Fore.LIGHTBLUE_EX + f'\nEnter a word to make an anagram or type \'exit\' to quit...\n\n' + Fore.LIGHTYELLOW_EX + f'').lower().strip()
